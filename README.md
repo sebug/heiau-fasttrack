@@ -14,3 +14,19 @@ You can double-click on a table in SQL Developer to get all the information and 
 
 View DBA and then Database Status -> Instance Viewer to see info on your database.
 
+### Basics
+Column names can be 128 characters long, alphanumeric and _, $, #
+
+#### Data Type differences to SQL Server
+VARCHAR2(length) for character data
+
+#### Reflection
+You can use all_tab_columns to query columns, a bit like INFORMATION_SCHEMA.COLUMNS.
+
+#### Calculations
+If you just have to call a scalar function, you can SELECT from dual
+
+#### Columns
+You can use column position for order by clause - ORDER BY 2 will order by the second column of the select statement.
+
+

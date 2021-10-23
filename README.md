@@ -9,3 +9,8 @@ I'm doing all the stuff using the [Database Application Development VM](https://
 
 I'm following the LinkedIn Learning courses from Bob Bryla at the moment.
 
+### Client Tools
+You can double-click on a table in SQL Developer to get all the information and the table creation script.
+
+View DBA and then Database Status -> Instance Viewer to see info on your database.
+

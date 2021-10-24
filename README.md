@@ -87,3 +87,21 @@ Oracle syntax with (+) denoting the table that's outer
 #### NATURAL JOIN
 Type less, join on all common columns.
 
+### Oracle Data Dictionary
+Metadata
+
+Dynamic performance views start with GV$ in a RAC environment.
+
+ * catalog.sql Creates the data dictionary and synonyms to access it, granting access to the synonyms to the PUBLIC user
+ * catproc.sql Creates all built-in PL/SQL packages, functions and procedures
+ * catpcat.sql runs both of the aforementioned in parallel
+ * catclust.sql creates data dictionary views for RAC
+
+We have to grant additional rights, probably
+
+	grant select any dictionary to OE;
+
+DBA_* views contain metadata on all objects
+
+*_TAB_COLUMNS for list of columns within a table.
+

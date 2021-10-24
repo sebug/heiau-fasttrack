@@ -105,3 +105,42 @@ DBA_* views contain metadata on all objects
 
 *_TAB_COLUMNS for list of columns within a table.
 
+### Data manipulation
+INSERT ALL and CREATE TABLE AS are a bit Oracle-specific.
+
+INSERT WHEN condition THEN INTO Table1 ELSE Table2
+
+INSERT ALL number of distinct columns < 1k
+
+INSERT FIRST inserts in the first table matching the when clause
+
+DELETE with CASCADE removes the table rows with on delete cascade
+
+### Creating Objects
+Naming rules: alphanumeric plus _, $ and #, up to 128 characters
+
+#### When creating tables
+Can have CHECK constraints
+
+needs the CREATE TABLE system privilege
+
+UNLIMITED TABLESPACE privilege or QUOTA
+
+#### Indexes
+Types: B-Tree, UNIQUE, BITMAP
+
+Your index can be in another schema
+
+### Dropping Objects
+Recycle bin :-)
+
+CASCADE CONSTRAINTS to remove foreign key constraints
+
+use PURGE to avoid it going to the recycle bin if that is enabled.
+
+flashback table rename to
+
+DROP INDEX ONLINE to allow data modification while we're dropping.
+
+both table and index show up in the recyclebin.
+

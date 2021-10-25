@@ -182,7 +182,7 @@ Column names of the first result set are used for output.
 
 ### MERGE
 
-```PLSQL
+```plsql
 MERGE INTO table
    USING subquery
    ON (conditional_expression)

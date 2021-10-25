@@ -198,3 +198,27 @@ WHEN NOT MATCHED THEN
 ;
 	
 ```
+you can put additional conditional expressions also in the update and INSERT (for example when not matched insert, but only if the additional condition matches).
+
+You can merge into a view / subquery, if it's updatable:
+
+```sql
+merge into
+(select employee_id, first_name, last_name, commission_pct
+ from employees
+ where employee_id != 795) e
+
+...
+
+```
+
+The problem is if we then have a WHEN NOT MATCHED INSERT with employee_id 795
+
+#### USING
+can again be a subquery.
+
+#### WHEN MATCHED THEN UPDATE
+Update clause doesn't specify the table name again, but otherwise it's the same
+
+#### DELETE
+Does not run without the update clause.

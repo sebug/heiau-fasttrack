@@ -222,3 +222,86 @@ Update clause doesn't specify the table name again, but otherwise it's the same
 
 #### DELETE
 Does not run without the update clause.
+
+### Subsets of languages
+
+ * Query Statements (SELECT)
+ * Data Definition Language (DDL)
+ * Data Manipulation Language (DML)
+ * Transaction Control (COMMIT, ROLLBACK)
+ * Session Control (ALTER SESSION)
+ * System Control (ALTER SYSTEM)
+ * Embedded SQL (Oracle Call Interface)
+
+Easily forgotten DDL: GRANT, ALTER, AUDIT, FLASHBACK, PURGE
+
+### Mixing DML and DDL
+DDL commands perform an implicit commit (ALTER SESSION!)
+
+#### To test: unshared session
+
+### Transaction Processing
+Use SAVEPOINT for partial rollbacks
+
+SET TRANSACTION READ ONLY or READ/WRITE
+
+SET CONSTRAINT - to defer constraints checking
+
+You can put a WRITE NOWAIT to not wait for transaction commit.
+
+ROLLBACK TO SAVEPOINT savepoint_name
+
+### DDL - Creating and Manipulating Objects
+TRUNCATE - you can DROP STORAGE. You can TRUNCATE on other schemas if you have the right (DROP ANY TABLE). CASCADE truncates tables having a reference to the table being truncated.
+
+sub-object number (DATA_OBJECT_ID) and last DDL time change when we TRUNCATE.
+
+won't run triggers.
+
+#### Synonyms
+Public or private (private by default). You can CREATE OR REPLACE
+
+resolution order: object in schema, private synonym, public synonym.
+
+rights: CREATE SYNONYM, CREATE ANY SYNONYM, CREATE PUBLIC SYNONYM
+
+have a look in user_synonyms to see which synonyms you have.
+
+#### Sequences and Identity columns
+Sequence, accessed by CURRVAL, NEXTVAL
+
+```sql
+
+CREATE SEQUENCE sequence_name START WITH 1 INCREMENT BY 10
+
+```
+
+You can also have identity columns:
+
+column_name datatype GENERATED AS IDENTITY
+
+the options are the same as the sequence
+
+### Managing Constraints with Indexes
+
+NOT NULL constraint can only be defined inline.
+
+#### UNIQUE
+Index and constraint.
+
+column_name datatype CONSTRAINT constraint_name UNIQUE
+
+NULLs don't count!
+
+#### Indexes
+Can be invisible, compressed
+
+CREATE ANY INDEX to do it on another schemas.
+
+#### Primary key
+Creates two objects and one constraint
+
+#### Foreign key
+If defined inline, there's no FOREIGN KEY keyword
+
+add an index separately to not have to lock the whole table upon deletion (same as in SQL Server)

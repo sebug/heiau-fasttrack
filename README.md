@@ -144,3 +144,56 @@ DROP INDEX ONLINE to allow data modification while we're dropping.
 
 both table and index show up in the recyclebin.
 
+## Advanced SQL
+
+### Hierarchical functions
+
+	select rpad(' ', level, '') || last_name employee,
+	case when connect_by_isleaf = 1 then 'No' else 'Yes' end is_manager
+	from employees
+	start with employee_id = 100
+	connect by prior employee_id=manager_id
+
+sys_connect_by_path to output the whole path
+
+Of course CTEs are still possible.
+
+### NULL handling
+NVL2(expr1, expr2, expr3) to return expr2 if expr1 is not null, else expr3
+
+NULLIF(expr1, expr2) returns null if expr1 and expr2 are equal.
+
+COALESCE as in SQL Server
+
+### Analytic functions
+
+aggregate OVER (PARTITION BY ) , for example for a running total
+
+rank() skips numbers on ties, dense_rank() keeps them.
+
+WITHIN GROUP to order inside the group
+
+### Set Operators
+You can put in parenthesis with MINUS or INTERSECT to alter the order
+
+By default, output is sorted ascending by column order (except for UNION ALL).
+
+Column names of the first result set are used for output.
+
+### MERGE
+
+```sql
+MERGE INTO table
+   USING subquery
+   ON (conditional_expression)
+WHEN MATCHED THEN
+   UPDATE SET
+      col1 = val1
+   DELETE WHERE
+     conditional_expression
+WHEN NOT MATCHED THEN
+  INSERT (col1, col2)
+    VALUES (v1, v2)
+;
+	
+```

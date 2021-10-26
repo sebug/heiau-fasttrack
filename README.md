@@ -305,3 +305,9 @@ Creates two objects and one constraint
 If defined inline, there's no FOREIGN KEY keyword
 
 add an index separately to not have to lock the whole table upon deletion (same as in SQL Server)
+
+
+## PL/SQL
+
+You can use %TYPE and %ROWTYPE to get types at runtime.
+

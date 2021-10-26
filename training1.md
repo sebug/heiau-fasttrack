@@ -11,6 +11,8 @@ from table(dbms_xplan.display_cursor(null,null,'basic'));
 
 
 ## Jonathan Lewis - Transformations
+https://jonathanlewis.wordpress.com
+
 ANSI joins - gives query blocks per join.
 
 ```sql
@@ -71,4 +73,93 @@ Oracle can get clever with ORs .
 Oracle just undid what he did manually.
 
 But you can transform AND to INTERSECT
+
+## David Kurtz - Practical Use of Active Session History
+
+What counts after all is end-to-end performance, but ASH helps with the database
+part.
+
+### ASH fundamentals
+Samples the active sessions.
+
+### ASH SQL
+
+```sql
+SELECT ...
+FROM v$active_session_history
+```
+
+### Architecture
+Circular buffer of session state objects.
+
+### License
+Enterprise edition
+
+There's also OraSASH
+
+### Before: Trace
+But trace has to be enabled.
+
+ASH will tell you who is blocking you.
+
+SELECT * FROM v$diag_trace_file
+SELECT * FROM v$diag_trace_file_contents
+
+### ASH Dimensions and Attributes
+- Which transaction
+- Which session
+- Which container
+- Which plan hash
+- ...
+
+### Enterprise Manager Performance Hub
+
+### Active Session History Report
+Top SQL queries etc., but normally you want to query yourself.
+
+### EDB360/SQLD360
+Open Source Tool
+
+### Important: Instrumentation
+DBMS_APPLICATION_INFO to set session attributes so that they get picked up
+by trace and ASH.
+
+Very rarely activated.
+
+in your stored procedure, read the current module and action, then set_module yours , in the end, set it back.
+
+#### How to instrument code you don't own
+- Triggers
+
+Otherwise: Everything is JDBC Thin Client
+
+-> Useless
+
+#### What are you looking for
+History or current data? SQL_PLAN_HASH_VALUE, what event?
+
+DBA_HIST_SNAPSHOT
+
+### Demo
+SELECT * from table(dbms_xplan.display_awr(sql_id, 'thehash',...)
+
+-> He normally puts the whole select in a column
+
+### Some challenges
+- Literals instead of bind variables
+
+Example in PeopleSoft - literal operator id, will get a different execution plan.
+
+- Aggregate by SQL_PLAN_HASH_VALUE
+
+But you may not be able to find the SQL since it's been aged out.
+
+dba_hist_sqltext
+
+### Caveats with RAC
+Each RAC instance has its own ASH buffer and manages own sampling, as well as its own AWR snapshots.
+
+### How he works
+May be an interesting template for me as well, to look up in the presentation.
+
 

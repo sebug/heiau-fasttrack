@@ -53,4 +53,22 @@ not mean the same thing depending on the version.
 #### Summing up cost
 Self-induced caching -> if we do it a lot, then the cache will kick in.
 
+#### Sample: Join elimination
+Idea: You query a common view but only need columns from some tables, Oracle may eliminate some joins to tables not shown and having no impact on filtering.
+
+With grandparent example - order made a difference (tough luck)
+
+#### Sample: Join factorization
+You use a table in both parts of a UNION all, we can take it outside.
+
+#### What to do if it's almost there?
+Take the whole outline and put it in the query.
+
+#### OR Expansion
+Oracle can get clever with ORs .
+
+#### De Morgan transformation cleverness
+Oracle just undid what he did manually.
+
+But you can transform AND to INTERSECT
 

@@ -292,5 +292,21 @@ alter table tpch.foo shrink space;
 #### Late in the lifecycle
 Column stores - we don't insert stuff anymore, and now we can really compress (since there's little entropy in a specific column).
 
+## Q & A
 
+ * Indexes on Exadata - mark them as invisible, run the workload and re-enable them afterwards to see. They talk about Peoplesoft migration to Exadata, tough
+ to work out which indexes you can live without
+ * Automatic indexes
+ * Indexes again - since we can parallelize a lot in Exadata, mostly those are
+ chosen instead of an index
+ * Query transformations - how does having a cursor expression in there change the available transformations / optimizations?
+ * What can lead to changing execution plan without changing the code
+   - more data
+   - time
+   - updating statistics
+   - if you go out of the range (current known high value) -> let's adapt
+   - real time statistics
+ * Autonomous features - should make things easier, feedback until now was that there was more surprise
+ * https://jonathanlewis.wordpress.com/2013/12/23/plan-changes/
+ * including columns in an index works a lot differently in Oracle - clustering factor changes, not like in SQL Server
 

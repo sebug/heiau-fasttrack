@@ -163,3 +163,134 @@ Each RAC instance has its own ASH buffer and manages own sampling, as well as it
 May be an interesting template for me as well, to look up in the presentation.
 
 
+## Neil Chandler - How Oracle Makes Decisions
+
+### What is Cost
+
+ * Selectivity - fraction of rows satisfying a condition
+ * Cardinality - selectivity * number of input rows
+ * Cost - the amount of resources needed
+
+Check it out on dba_tab_statistics
+
+On columns with DBA_TAB_COL_STATISTICS
+
+If Oracle thinks it will only get one row back, it does interesting other
+things (for example, cartesian join)
+
+### Clustering factor - how aligned is the index to the table?
+
+High clustering factor - index considered more expensive.
+
+TABLE_CACHED_BLOCKS - it's not that bad if the previous block was still
+cached!
+
+### System Statistics
+Describe IO and CPU performance of your hardware.
+
+Oracle >= 12 - don't bother, use the defaults.
+
+sys.aux_stats$
+
+EXADATA recalculate - see you have many more blocks per read
+
+### When this causes problems
+
+### First example
+Multi-block read time 14, single block read time, 71071 -> impossible, and Oracle recognizes it.
+
+### Second example
+Multi-block read 6, single-block read 3.85 -> full scan becomes very unattractive, so we're using indexes instead of just going for the full scan
+
+### Third example
+optimizer_index_cost_adj 50 (work on indexes), multi block cost per block .18 (I like table scans)
+
+### Cardinality Calculations
+Undocumented and a little complex
+
+Histograms - almost free to gather
+
+### When will the optimizer pick an index
+
+First, let's see what a table scan would cost
+
+then, indexes by selectivity
+
+Combine indexes (through bitmap) - we assume that the selectivities multiply.
+
+### 10053 trace
+
+	alter session set events 'trace[rdbms.SQL_Optimizer.*][sql:sql-id-here]';
+
+	DBMS_SQLDIAG.DUMP_TRACE(...)
+
+-> use with caution
+
+-> be aware of adaptive execution plans
+
+Know what is being bypassed (for example, vector transformation)
+
+See what to use for single table access
+
+determine join order
+
+## Roger MacNicol the lifecycle of a row
+Performance things that you may not have considered.
+
+By default, block dumps are not including encrypted data, but you can disable
+that if you must.
+
+Rowpiece - 255 columns max.
+
+### PCTFREE and PCTUSED
+PCTFREE is the difference between size of the initial insert and the maximum size in the row's lifecycle.
+
+PCTUSED can we give it back.
+
+Column order matters because how we walk through it -> dbms_redefinition. But this of course means that you always should explicitly name columns on insert.
+
+The reason migrated rows get created is that changing row id has to update all
+indexes.
+
+((don't go to 12.1))
+
+### Delete
+Mark as deleted, then once the space is needed, sfll - empty slot in the block.
+
+### Fragmentation and Compaction
+table fetch continued row stat
+
+but compare it relative to the rows gotten.
+
+Analyze table -> populates columns in user_tables.
+
+### Ways of dealing with it
+#### 1x
+datapump export import
+alter table shrink space compact
+
+#### 2x
+dbms_redefinition
+alter table move (compress)
+
+#### more than 2x
+Alter table move online
+
+### Sample
+Deleting every other row
+
+alter table tpch.foo shrink space compact;
+
+alter table tpch.foo shrink space;
+
+### What happens if data cools down?
+
+#### Compression
+- Semantic (dictionary lookup for example) -> does not need to be decompressed to perform queries on
+- Bitwise compression needs decompression
+
+#### Late in the lifecycle
+Column stores - we don't insert stuff anymore, and now we can really compress (since there's little entropy in a specific column).
+
+
+

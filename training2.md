@@ -100,4 +100,38 @@ Gotta try out one of these OTP automatic databases.
 ### The role changes just a bit
 Good queries.
 
+## Randolf Eberle-Geist - Oracle Database Indexing Myths
+
+### Clustering factor rebuild myth
+Don't worry too much about it - if your index looks at the rows in a specific
+way, then it will continue to do that after a rebuild. The one thing that
+may change is the statistics.
+
+But in any case, there may be more than one block in the cache.
+
+### Concatenated Index Column Order Myths
+Putting the column with the one having the most distinct values first makes
+intuitive sense, but does it matter? We clearly see that filtering by parts of the index works badly.
+
+If you don't have that many values in the leading column, we may still be
+able to use the index efficiently -> INDEX SKIP SCAN.
+
+If you have few distinct values in the first column, you can do index
+compression!
+
+Now of course if you specify a range >= <=, then order starts to matter.
+
+### Index Monitoring
+After 12.2, index monitoring is enabled by default.
+
+create index on correlated
+
+V$INDEX_USAGE_INFO general information
+DBA_INDEX_USAGE much more detailed
+
+### Myth: NULLs are not indexed
+B-Tree indexes don't index if the entries are entirely null (duh).
+
+What if you want efficient access to NULL values? You can do a function-based index that converts null, for example.
+
 

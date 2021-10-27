@@ -134,4 +134,19 @@ B-Tree indexes don't index if the entries are entirely null (duh).
 
 What if you want efficient access to NULL values? You can do a function-based index that converts null, for example.
 
+## Craig Shallahamer - How to build a performance prediction system using ML & Python
+
+Sampling from sysmetric data
+
+Using LSTM for predicting performance.
+
+Denormalizing sysmetric - 50 columns instead of key-value
+
+Since we don't want to weigh the very big numbers more, we scale.
+
+### Deployment
+He never put it back in Enterprise Manager, but sure.
+
+http://filebank.orapub.com/workshops/202110-rt-colab/
+
 

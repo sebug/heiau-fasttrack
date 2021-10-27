@@ -95,4 +95,9 @@ Was already available for direct-path inserts in 12c, more general in 19c.
 Not turned on by default - shaky performance, can't change join order.
 
 ### Autonomous
+Gotta try out one of these OTP automatic databases.
+
+### The role changes just a bit
+Good queries.
+
 

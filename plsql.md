@@ -80,4 +80,21 @@ exit when to specify a condition for exiting.
 ### if
 elsif
 
+### SELECT INTO and BULK COLLECT
+Other than SQL Server result sets, in PL/SQL we have to use select into in
+procedures (if there's one row) and BULK COLLECT if there are multiple.
+
+SQL%ROWCOUNT, SQL%FOUND and SQL%NOTFOUND for context.
+
+There is an error message if SELECT INTO doesn't return exactly one row.
+
+SQL%ISOPEN to check whether a cursor is still open.
+
+### Dynamic SQL
+Runs SQL statements that can't be run as static SQL in PL/SQL
+
+ * CREATE, DROP TABLE
+ * GRANT, REVOKE system or object privilege
+ * TRUNCATE TABLE
+ * ALTER SESSION, ALTER SYSTEM
 

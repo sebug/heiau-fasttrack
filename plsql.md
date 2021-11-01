@@ -38,3 +38,46 @@ end looop;
 
 if you have an implicit cursor, you get the information in sql% variables like sql%rowcount
 
+### Security Model
+Definer rights - default, invoker rights, but EXECUTE you'll need anyway.
+
+AUTHID CURRENT_USER or AUTHID DEFINER
+
+this defines in which schema we run.
+
+To be sure the right table is used, specify the schema.
+
+The security model changes in stored procedures.
+
+If a procedure is created with definer rights, all roles are disabled.
+
+### Blocks
+Can be labeled, declare optional.
+
+begin ... exception ... end;
+
+If we have labels, we can qualify variables with it.
+
+### For loops
+
+```sql
+for iterator in reverse 1 .. 10
+loop
+
+end loop;
+```
+
+You can also for in a select statement.
+
+### While loop
+Evaluating to null exits as well.
+
+### Loop
+like while 1 = 1, so we need an exit condition.
+
+exit when to specify a condition for exiting.
+
+### if
+elsif
+
+

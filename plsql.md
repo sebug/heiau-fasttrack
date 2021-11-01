@@ -98,3 +98,12 @@ Runs SQL statements that can't be run as static SQL in PL/SQL
  * TRUNCATE TABLE
  * ALTER SESSION, ALTER SYSTEM
 
+
+```sql
+execute immediate 'insert into departments_archive select * from departments';
+```
+
+execute immediate into
+
+if you use bind variables :a, :b you execute immediate using
+

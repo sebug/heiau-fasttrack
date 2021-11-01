@@ -107,3 +107,22 @@ execute immediate into
 
 if you use bind variables :a, :b you execute immediate using
 
+### Exception handling
+EXCEPTION WHEN
+
+Types of error codes: internal (ORA-...), predefined (NO_DATA_FOUND) or user
+defined.
+
+```sql
+declare
+	missing_table exception;
+	pragma exception_init(missing_table, -942);
+begin
+	...
+	exception
+		when missing_table then
+		...
+		when others then
+		...
+end
+```

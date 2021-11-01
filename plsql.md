@@ -126,3 +126,10 @@ begin
 		...
 end
 ```
+
+### User-defined exceptions
+in the declare, giving it the type exception, then raise
+
+### Catching when others
+You can use sqlcode and sqlerrm pre-defined variables.
+

@@ -133,3 +133,45 @@ in the declare, giving it the type exception, then raise
 ### Catching when others
 You can use sqlcode and sqlerrm pre-defined variables.
 
+## User-Defined Types
+Max sizes of predefined types may be shorter.
+
+use MAX_STRING_SIZE for example to adapt.
+
+### CLOB
+EMPTY_CLOB() and DBMS_LOAD.APPEND to construct a big clob.
+
+### Use the returning clause to get what was inserted.
+returning paper_text into lob_loc
+
+### PL/SQL only types
+BOOLEAN, PLS_INTEGER
+
+#### Subtypes
+Stuff is stored in the main type, but we ensure additional constraints.
+
+ * NATURAL
+ * NATURALN (not null)
+ * POSITIVE
+ * POSITIVEN
+ * SIGNTYPE -1, 0, 1
+ * SIMPLE_INTEGER PLS_INTEGER but not NULL
+
+### Using type with TABLE functions
+function pipelined
+
+create type t_obj_row as object (...)
+
+create type t_obj_table is table of t_obj_row;
+
+```sql
+create or replace function trans_oltp
+return t_obj_table pipelined is
+begin
+...
+pipe row
+...
+return;
+end;
+
+```

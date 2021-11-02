@@ -72,5 +72,6 @@ I should manage
 Columns unused: You can set columns to unused before dropping.
 
 ### Temporary tables
-
+Not the same as in SQL Server - the table definition stays, it's just the
+content that's cleared out.
 

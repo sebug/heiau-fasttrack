@@ -51,5 +51,26 @@ Then if you run the script you see before & after substitution.
 ### Sorting
 nulls first, column index.
 
+## Single-Row functions
+TRUNC is like floor, also works on dates.
+
+### Date arithmetic
+In fractions of a day, you can also minus to get a time span.
+
+to_date to get the date in a specific format.
+
+## Conversion functions
+NULLIF to return NULL if the value matches the second argument (useful to avoid
+divisions by zero).
+
+TO_NUMBER to specify a format to parse with.
+
+## Set operators
+I should manage
+
+## DDL
+Columns unused: You can set columns to unused before dropping.
+
+### Temporary tables
 
 

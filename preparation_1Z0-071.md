@@ -6,6 +6,10 @@ In SQL Developer, you can use the schema browser on a DB to see the entity
 relationship diagrams as Oracle likes them - just click on a table and then
 go to the model tab.
 
+### Oracle-specific terminology
+It's a bit non-standard, so here's a mapping from my courses to what they use
+for them. >-- for many-to-one. # for primary key
+
 ## Retrieving data using SELECT
 Column aliases in Oracle are without the AS. Concatenation is with ||.
 Substr takes length and is 1-indexed.
@@ -31,6 +35,10 @@ FETCH FIRST 10 ROWS ONLY
 https://oracle-base.com/articles/12c/row-limiting-clause-for-top-n-queries-12cr1
 
 And then there's of course RANK and DENSE_RANK.
+
+### SELECT FOR UPDATE
+If you issue a select for update, you get row-level locks for the rows
+selected until COMMIT / ROLLBACK.
 
 ### Substitution Variables
 
@@ -71,7 +79,10 @@ I should manage
 ## DDL
 Columns unused: You can set columns to unused before dropping.
 
+
 ### Temporary tables
 Not the same as in SQL Server - the table definition stays, it's just the
 content that's cleared out.
 
+## After-Exam Write-Up
+The difficulties: INTERVAL, date formats, external tables.

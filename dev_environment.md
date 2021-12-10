@@ -1,8 +1,6 @@
 # Dev Environment
-While initially I was running from the Oracle Training VM, this was not really
-a good setup. Switching to installing it on [lima](https://github.com/lima-vm/lima)
+Initially I wanted to use [lima](https://github.com/lima-vm/lima) to run the Oracle DB, but that was just a sad waste of an afternoon.
 
-	limactl start oracletraining
-	limactl shell oracletraining
+So I'm using the Oracle Developer VM and connecting to it (that works out of the VirtualBox).
 
-Then following the instructions here: https://askubuntu.com/questions/1121649/how-to-install-oracle-18c-enterprise-edition-on-ubuntu-18-04
+

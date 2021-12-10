@@ -3,10 +3,10 @@ dbms_output.put_line('lookee, an anonymous block');
 dbms_output.put_line('can have more than one, of course');
 end;
 
-declare
-begin
-dbms_output.put_line('Can also have an empty declare');
-end;
+--declare
+--begin
+--dbms_output.put_line('Can also have an empty declare');
+--end;
 
 declare
 v number;

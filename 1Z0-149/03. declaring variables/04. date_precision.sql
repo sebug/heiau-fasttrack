@@ -18,6 +18,7 @@ dbms_output.put_line(prec6);
 dbms_output.put_line(prec9);
 dbms_output.put_line(ts_with_timezone);
 dbms_output.put_line(ts_with_localtimezone);
-itvl := '12-1';
+itvl := '-12-1';
 dbms_output.put_line(itvl);
+dbms_output.put_line(to_char(as_date, 'yyyy-MM-dd HH:mi:ss'));
 end;

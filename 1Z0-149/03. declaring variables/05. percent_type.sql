@@ -1,5 +1,7 @@
 declare
 emp_name employees.first_name%TYPE := 'seb';
+another_name emp_name%TYPE;
 begin
-dbms_output.put_line(emp_name);
+another_name := 'other';
+dbms_output.put_line(another_name);
 end;

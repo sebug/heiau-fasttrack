@@ -8,5 +8,5 @@ BEGIN
         dbms_output.put_line('That is just enough hype');
     ELSE
         dbms_output.put_line('That is not enough hype!');
-    END CASE;
+    END CASE; -- note the end case
 END;

@@ -9,4 +9,4 @@ begin
         dbms_output.put_line(the_number);
     end;
 end;
-end;
+end outer; -- Oracle doesn't even care if you don't put it here.

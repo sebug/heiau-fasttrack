@@ -1,9 +1,12 @@
-DECLARE
-branch NVARCHAR2(6) := '*';
 BEGIN
+    <<outer_loop>>
     FOR i IN 1 .. 5
     LOOP
-        dbms_output.put_line(branch);
-        branch := branch || '*';
+        <<inner_loop>>
+        FOR j in 1 .. i
+        LOOP
+            dbms_output.put('*');
+        END LOOP;
+        dbms_output.put_line('');
     END LOOP;
 END;

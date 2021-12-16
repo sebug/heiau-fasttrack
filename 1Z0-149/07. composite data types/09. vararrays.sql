@@ -3,6 +3,7 @@ DECLARE
     loc t_locations;
 BEGIN
     loc := t_locations('Schaffhausen','Zürich','Chur');
+    loc.trim(1);
     
     FOR i in loc.first..loc.last
     LOOP

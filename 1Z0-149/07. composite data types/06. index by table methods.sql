@@ -1,5 +1,8 @@
 DECLARE
-TYPE tab_no IS TABLE OF VARCHAR2(100)
+TYPE t_movie IS RECORD (
+  title VARCHAR2(100)
+);
+TYPE tab_no IS TABLE OF t_movie
 INDEX BY PLS_INTEGER;
 myazaki_movies tab_no;
 first_movie_idx PLS_INTEGER;
@@ -7,17 +10,17 @@ number_of_movies PLS_INTEGER;
 prior_to_the_first PLS_INTEGER;
 BEGIN
     
-    myazaki_movies(1984) := 'Nausicaä of the Valley of the Wind';
-    myazaki_movies(1979) := 'The Castle of Cagliostro';
-    myazaki_movies(1986) := 'Castle in the Sky';
-    myazaki_movies(1988) := 'My Neighbor Totoro';
-    myazaki_movies(1989) := q'{Kiki's Delivery Service}';
-    myazaki_movies(1992) := 'Porco Rosso';
-    myazaki_movies(1997) := 'Princess Mononoke';
-    myazaki_movies(2001) := 'Spirited Away';
-    myazaki_movies(2004) := q'{Howl's Moving Castle}';
-    myazaki_movies(2008) := 'Ponyo';
-    myazaki_movies(2013) := 'The Wind Rises';
+    myazaki_movies(1984).title := 'Nausicaä of the Valley of the Wind';
+    myazaki_movies(1979).title := 'The Castle of Cagliostro';
+    myazaki_movies(1986).title := 'Castle in the Sky';
+    myazaki_movies(1988).title := 'My Neighbor Totoro';
+    myazaki_movies(1989).title := q'{Kiki's Delivery Service}';
+    myazaki_movies(1992).title := 'Porco Rosso';
+    myazaki_movies(1997).title := 'Princess Mononoke';
+    myazaki_movies(2001).title := 'Spirited Away';
+    myazaki_movies(2004).title := q'{Howl's Moving Castle}';
+    myazaki_movies(2008).title := 'Ponyo';
+    myazaki_movies(2013).title := 'The Wind Rises';
     
     first_movie_idx := myazaki_movies.first;
     
@@ -28,7 +31,7 @@ BEGIN
         dbms_output.put_line('He did a movie in 1984');
     END IF;
     
-    myazaki_movies(1995) := 'Whisper of the heart';
+    myazaki_movies(1995).title := 'Whisper of the heart';
     
     -- Oh nevermind that one doesn't count
     myazaki_movies.delete(1995);

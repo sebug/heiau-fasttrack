@@ -19,7 +19,7 @@ BEGIN
     myazaki_movies(2008) := 'Ponyo';
     myazaki_movies(2013) := 'The Wind Rises';
     
-    first_movie_idx := myazaki_movies.first();
+    first_movie_idx := myazaki_movies.first;
     
     dbms_output.put_line(first_movie_idx);
     dbms_output.put_line(myazaki_movies.last());
@@ -33,7 +33,7 @@ BEGIN
     -- Oh nevermind that one doesn't count
     myazaki_movies.delete(1995);
     
-    number_of_movies := myazaki_movies.count();
+    number_of_movies := myazaki_movies.count;
     
     dbms_output.put_line(number_of_movies || ' movies in total');
     

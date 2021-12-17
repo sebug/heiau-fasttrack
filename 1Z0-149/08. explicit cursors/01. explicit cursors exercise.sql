@@ -7,7 +7,7 @@ CURSOR c_emp_dpt30 IS
 SELECT * FROM employees
 WHERE department_id = 30;
 
-v_emp_rec employees%ROWTYPE;
+v_emp_rec c_emp_dpt30%ROWTYPE; -- we could also reference the table
 BEGIN
     OPEN c_emp_dpt30;
     

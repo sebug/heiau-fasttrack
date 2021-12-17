@@ -9,7 +9,9 @@ WHERE department_id = 30;
 
 v_emp_rec c_emp_dpt30%ROWTYPE; -- we could also reference the table
 BEGIN
-    OPEN c_emp_dpt30;
+    IF NOT c_emp_dpt30%ISOPEN THEN
+        OPEN c_emp_dpt30;
+    END IF;
     
     LOOP
         FETCH c_emp_dpt30 INTO v_emp_rec;

@@ -19,4 +19,7 @@ either (kinda makes sense for determinism).
 
 The function will be compiled, it will just fail on execution.
 
+## Packages
+We can only see the stuff defined in the package specification from the
+outside.
 

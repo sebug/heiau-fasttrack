@@ -11,4 +11,6 @@ BEGIN
 END;
 
 SELECT first_name, last_name, salary, get_salary_tax(salary)
-FROM employees;
+FROM employees
+WHERE get_salary_tax(salary) > 500
+ORDER BY get_salary_tax(salary) DESC;

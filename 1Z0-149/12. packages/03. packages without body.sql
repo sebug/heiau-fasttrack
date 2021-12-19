@@ -5,8 +5,13 @@ IS
 END;
 
 DECLARE
-    v_num NUMBER;
+    FUNCTION get_miles_from_km
+        (p_km NUMBER)
+    RETURN NUMBER
+    IS
+    BEGIN
+        RETURN p_km * global_Measurement.c_km_to_mile;
+    END;
 BEGIN
-    v_num := global_Measurement.c_km_to_mile;
-    dbms_output.put_line(v_num);
+    dbms_output.put_line(get_miles_from_km(50));
 END;

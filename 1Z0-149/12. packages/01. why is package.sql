@@ -51,3 +51,6 @@ BEGIN
 END;
 
 SELECT area.square(5) FROM dual;
+
+DROP FUNCTION square_area;
+DROP FUNCTION rectangle_area;

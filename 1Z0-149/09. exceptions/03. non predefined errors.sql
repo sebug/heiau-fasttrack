@@ -7,4 +7,6 @@ BEGIN
     EXCEPTION
         WHEN e_insert THEN
             dbms_output.put_line('It complained about inserting NULL');
+            dbms_output.put_line(SQLCODE);
+            dbms_output.put_line(SQLERRM);
 END;

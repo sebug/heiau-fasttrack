@@ -23,3 +23,13 @@ The function will be compiled, it will just fail on execution.
 We can only see the stuff defined in the package specification from the
 outside.
 
+We can also change the spec or body separately (body: between begin/end,
+private stuff, spec: additional variables).
+
+If we do a major change that requires recompiling the body, it gives an
+error upon execution if that wasn't done yet.
+
+Packages are in user_objects (PACKAGE and PACKAGE BODY) and user_source.
+
+can drop package body without specification as well.
+

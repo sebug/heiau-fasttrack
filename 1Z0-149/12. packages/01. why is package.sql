@@ -1,11 +1,11 @@
 -- Some justifications
 
 CREATE OR REPLACE FUNCTION rectangle_area
-(p_side_1 NUMBER, p_side_2 NUMBER)
+(p_width NUMBER, p_height NUMBER)
 RETURN NUMBER
 IS
 BEGIN
-    RETURN p_side_1 * p_side_2;
+    RETURN p_width * p_height;
 END;
 
 CREATE OR REPLACE FUNCTION square_area
@@ -17,4 +17,32 @@ BEGIN
 END;
 
 
-SELECT square_area(3) FROM dual;
+CREATE OR REPLACE PACKAGE area
+IS
+
+FUNCTION rectangle(p_width NUMBER, p_height NUMBER)
+RETURN NUMBER;
+
+FUNCTION square(p_side_width NUMBER)
+RETURN NUMBER;
+
+END;
+
+CREATE OR REPLACE PACKAGE BODY area
+IS
+    FUNCTION rectangle
+    (p_width NUMBER, p_height NUMBER)
+    RETURN NUMBER
+    IS
+    BEGIN
+        RETURN p_width * p_height;
+    END;
+    
+    FUNCTION square
+    (p_side_width NUMBER)
+    RETURN NUMBER
+    IS
+    BEGIN
+        RETURN rectangle(p_side_width, p_side_width);
+    END;
+END;

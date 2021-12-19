@@ -50,7 +50,7 @@ IS
     (p_student_id NUMBER)
     RETURN VARCHAR2
     IS
-        v_student_firstname VARCHAR2(50);
+        v_student_firstname students.first_name%TYPE;
     BEGIN
         SELECT first_name
         INTO v_student_firstname

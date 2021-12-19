@@ -45,4 +45,9 @@ IS
     BEGIN
         RETURN rectangle(p_side_width, p_side_width);
     END;
+    
+BEGIN
+    dbms_output.put_line('Package being initialized');
 END;
+
+SELECT area.square(5) FROM dual;

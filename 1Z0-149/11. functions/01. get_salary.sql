@@ -12,5 +12,5 @@ BEGIN
     RETURN v_sal;
     EXCEPTION
         WHEN NO_DATA_FOUND THEN
-            RETURN 0;
+            RETURN 0; -- Otherwise: NULL in SELECT get_salary(-1) and exception in statement expression
 END;

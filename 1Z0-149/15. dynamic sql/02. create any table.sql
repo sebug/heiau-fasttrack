@@ -11,5 +11,5 @@ BEGIN
     EXECUTE IMMEDIATE v_details;
 END;
 
-EXECUTE create_any_table('emp4', 'emp_id NUMBER');
+EXECUTE create_any_table('emp5', 'emp_id NUMBER');
 

@@ -62,4 +62,8 @@ To set up:
 When sending with attachment, obtain some RAW bytes and attach them.
 
 ## Dynamic SQL
-Native Dynamic SQL: Execute immediate. Otherwise DBMS_SQL
+Native Dynamic SQL: Execute immediate. Otherwise DBMS_SQL.
+
+DDL - have to have rights directly and not through a role.
+
+

@@ -43,6 +43,8 @@ END;
 BEGIN
     cur_pkg.open_cursor;
     cur_pkg.printnext_20;
-    cur_pkg.printnext_20;
+END;
+
+BEGIN
     cur_pkg.close_cursor;
 END;

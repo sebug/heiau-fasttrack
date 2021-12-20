@@ -13,3 +13,23 @@ BEGIN
 END;
 
 EXECUTE delete_any_table2('emp1');
+
+CREATE OR REPLACE PROCEDURE add_rows2
+(p_table_name VARCHAR2, p_value NUMBER)
+IS
+    v_no_rec NUMBER;
+    v_cur_id NUMBER;
+    v_insert VARCHAR2(1000) := 'INSERT INTO ' ||
+        p_table_name || ' VALUES (:ID)';
+BEGIN
+    v_cur_id := dbms_sql.open_cursor;
+    dbms_sql.parse(v_cur_id, v_insert, dbms_sql.native);
+    dbms_sql.bind_variable(v_cur_id, ':ID', p_value);
+    v_no_rec := dbms_sql.execute(v_cur_id);
+    dbms_output.put_line(v_no_rec || ' records inserted to ' || p_table_name);
+    COMMIT;
+END;
+
+EXECUTE add_rows2('emp1',  27);
+
+SELECT * FROM emp1;

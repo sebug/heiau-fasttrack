@@ -46,4 +46,6 @@ Functions with different return type - doesn't work, as expected.
 - except if PRAGMA SERIALLY_REUSABLE, then it is per execution.
 
 ## Oracle-Supplied packages
+get_line / get_lines take from the buffer (not, say, stdin).
+
 

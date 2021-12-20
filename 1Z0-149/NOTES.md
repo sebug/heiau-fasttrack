@@ -74,4 +74,20 @@ RAISE_APPLICATION_ERROR takes a third parameter that, when set to true, does not
 Local subprograms - have the advantage that you don't have to expose them
 outside the block.
 
+Invoker's rights - AUTHID CURRENT_USER (AUTHID DEFINER is the other option).
+
+Then you also need rights on the underlying objects.
+
+### Autonomous Transactions
+Independent of the main transaction. They are started and ended by
+individual subprograms - can't use them in anonymous blocks.
+
+### NOCOPY
+For OUT / IN OUT parameters. IN parameters are always passed by reference,
+which is easy because you can't reassign anyway.
+
+Basically the issue is when the called subprogram throws - if we passed
+by reference we have no guarantee that the value wasn't already changed.
+
+
 

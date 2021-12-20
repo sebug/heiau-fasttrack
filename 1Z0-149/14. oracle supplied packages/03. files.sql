@@ -45,8 +45,8 @@ BEGIN
     v_file := utl_file.fopen(v_location, v_filename, 'w');
     FOR dep in (SELECT * FROM departments)
     LOOP
-        utl_file.put_line(v_file, dep.DEPARTMENT_ID || '-' || dep.department_name ||
-            '-' || dep.manager_id || '-' || dep.location_id);
+        utl_file.put_line(v_file, dep.DEPARTMENT_ID || CHR(9) || dep.department_name ||
+            CHR(9) || dep.manager_id || CHR(9) || dep.location_id);
     END LOOP;
     utl_file.fclose(v_file);
 END;

@@ -24,3 +24,4 @@ BEGIN
     table_fun.get_employees(v_employees);
     dbms_output.put_line(v_employees(100).first_name);
 END;
+

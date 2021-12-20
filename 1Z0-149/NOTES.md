@@ -45,4 +45,5 @@ Functions with different return type - doesn't work, as expected.
 - Unique per session.
 - except if PRAGMA SERIALLY_REUSABLE, then it is per execution.
 
+## Oracle-Supplied packages
 

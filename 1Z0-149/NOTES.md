@@ -36,3 +36,9 @@ can drop package body without specification as well.
 ### Overloading
 Only available inside package? I see what you're doing there :-)
 
+As for overloads that can't be distinguished, it will complain upon
+EXECUTE - too many procedures match this call.
+
+Functions with different return type - doesn't work, as expected.
+
+

@@ -66,4 +66,12 @@ Native Dynamic SQL: Execute immediate. Otherwise DBMS_SQL.
 
 DDL - have to have rights directly and not through a role.
 
+## Design Considerations
+- Put Constants and exceptions using a bodyless package.
+
+RAISE_APPLICATION_ERROR takes a third parameter that, when set to true, does not replace the oracle error code, adding it instead.
+
+Local subprograms - have the advantage that you don't have to expose them
+outside the block.
+
 

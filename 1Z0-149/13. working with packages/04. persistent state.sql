@@ -1,5 +1,6 @@
 CREATE OR REPLACE PACKAGE Persistent_state
 IS
+    PRAGMA SERIALLY_REUSABLE;
     g_var NUMBER := 10;
     PROCEDURE update_g_var
     (p_no NUMBER);
@@ -7,6 +8,8 @@ END;
 
 CREATE OR REPLACE PACKAGE BODY Persistent_state
 IS
+    PRAGMA SERIALLY_REUSABLE;
+
     PROCEDURE update_g_var
     (p_no NUMBER)
     IS

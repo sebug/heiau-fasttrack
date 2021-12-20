@@ -43,6 +43,6 @@ Functions with different return type - doesn't work, as expected.
 
 ### Persistent state of the package
 - Unique per session.
-- except if PRAGMA SERIALLY_REUSABLE
+- except if PRAGMA SERIALLY_REUSABLE, then it is per execution.
 
 

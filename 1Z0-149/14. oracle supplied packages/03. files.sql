@@ -49,4 +49,20 @@ BEGIN
             CHR(9) || dep.manager_id || CHR(9) || dep.location_id);
     END LOOP;
     utl_file.fclose(v_file);
+    
+    EXCEPTION
+        WHEN utl_file.INVALID_PATH THEN
+            dbms_output.put_line('Invalid path');
+        WHEN utl_file.INVALID_MODE THEN
+            dbms_output.put_line('Invalid mode');
+        WHEN utl_file.INVALID_FILEHANDLE THEN
+            dbms_output.put_line('Invalid file handle');
+        WHEN utl_file.INVALID_OPERATION THEN
+            dbms_output.put_line('Invalid operation');
+        WHEN utl_file.READ_ERROR THEN
+            dbms_output.put_line('Read error');
+        WHEN utl_file.WRITE_ERROR THEN
+            dbms_output.put_line('Write error');
+        WHEN utl_file.INTERNAL_ERROR THEN
+            dbms_output.put_line(SQLERRM);
 END;

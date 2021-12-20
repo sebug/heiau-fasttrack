@@ -36,3 +36,17 @@ BEGIN
     END;
     utl_file.fclose(v_file);
 END;
+
+DECLARE
+    v_file UTL_FILE.FILE_TYPE;
+    v_location VARCHAR2(100) := 'MYDIR';
+    v_filename VARCHAR2(100) := 'departments.txt';
+BEGIN
+    v_file := utl_file.fopen(v_location, v_filename, 'w');
+    FOR dep in (SELECT * FROM departments)
+    LOOP
+        utl_file.put_line(v_file, dep.DEPARTMENT_ID || '-' || dep.department_name ||
+            '-' || dep.manager_id || '-' || dep.location_id);
+    END LOOP;
+    utl_file.fclose(v_file);
+END;

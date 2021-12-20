@@ -11,6 +11,7 @@ CREATE OR REPLACE PACKAGE overload_proc
 IS
     PROCEDURE add_cust(p_id number, p_name VARCHAR2, p_birthday DATE);
     PROCEDURE add_cust(p_id number, p_name VARCHAR2);
+    PROCEDURE add_cust(p_name VARCHAR2, p_id NUMBER);
 END;
 
 CREATE OR REPLACE PACKAGE BODY overload_proc
@@ -30,9 +31,16 @@ IS
         VALUES (p_id, p_name);
         COMMIT;
     END;
+    
+    PROCEDURE add_cust(p_name VARCHAR2, p_id NUMBER)
+    IS
+    BEGIN
+        add_cust(p_id, p_name);
+    END;
 END;
 
 EXECUTE overload_proc.add_cust(1, 'seb');
 EXECUTE overload_proc.add_cust(2, 'ian freely', TO_DATE('1998-12-17', 'YYYY-MM-DD'));
+EXECUTE overload_proc.add_cust('amanda huginkis', 3);
 
 SELECT * FROM customers;

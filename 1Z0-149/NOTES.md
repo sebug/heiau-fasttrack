@@ -33,3 +33,6 @@ Packages are in user_objects (PACKAGE and PACKAGE BODY) and user_source.
 
 can drop package body without specification as well.
 
+### Overloading
+Only available inside package? I see what you're doing there :-)
+

@@ -48,4 +48,18 @@ Functions with different return type - doesn't work, as expected.
 ## Oracle-Supplied packages
 get_line / get_lines take from the buffer (not, say, stdin).
 
+### UTL_MAIL
+I'm not really feeling setting this up. Primary procedures:
 
+	SEND
+	SEND_ATTACH_RAW
+	SEND_ATTACH_VARCHAR2
+
+To set up:
+
+	ALTER SYSTEM SET SMTP_OUT_SERVER = '...msx001'
+
+When sending with attachment, obtain some RAW bytes and attach them.
+
+## Dynamic SQL
+Native Dynamic SQL: Execute immediate. Otherwise DBMS_SQL

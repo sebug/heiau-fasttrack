@@ -41,4 +41,8 @@ EXECUTE - too many procedures match this call.
 
 Functions with different return type - doesn't work, as expected.
 
+### Persistent state of the package
+- Unique per session.
+- except if PRAGMA SERIALLY_REUSABLE
+
 

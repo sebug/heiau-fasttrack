@@ -141,4 +141,9 @@ Order: before statement, before row, after row, after statement.
 Can be used to specify order of triggers if the order would otherwise
 be unspecified.
 
+### Mutating table
+Since the trigger can mutate records that are being inserted, we may get
+into strange situations where we're re-reading stuff that was modified by
+the trigger. This throws an exception.
+
 

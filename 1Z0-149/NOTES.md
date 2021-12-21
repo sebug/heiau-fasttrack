@@ -114,4 +114,8 @@ Use FORALL to send stuff to the SQL executor in bulk.
 
 Can only use them in the collections.
 
+### BULK COLLECT INTO
+instead of into, to bulk collect into a collection.
+
+
 

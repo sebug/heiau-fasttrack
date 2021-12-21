@@ -98,5 +98,20 @@ NOCOPY doesn't work when:
 After the RETURN in the function definition. Only in enterprise edition.
 
 ### RESULT_CACHE
+Stored in the Shared Global Area.
+
+If I insert something in the table used for the calculation, it will be
+calculated again, luckily.
+
+What you can do to optimize this: Tweak the parameters shared_pool_size,
+result_cache_max_size and result_cache_mode.
+
+### DETERMINISTIC
+Only enables caching per-session.
+
+### BULK binding
+Use FORALL to send stuff to the SQL executor in bulk.
+
+Can only use them in the collections.
 
 

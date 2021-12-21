@@ -1,6 +1,6 @@
 CREATE OR REPLACE FUNCTION get_sum_sal_dep
     (dept_id NUMBER)
-RETURN NUMBER RESULT_CACHE
+RETURN NUMBER RESULT_CACHE -- no longer need to specify relies_on
 IS
     v_sal NUMBER;
 BEGIN

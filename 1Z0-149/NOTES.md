@@ -117,5 +117,9 @@ Can only use them in the collections.
 ### BULK COLLECT INTO
 instead of into, to bulk collect into a collection.
 
+### INDICES OF
+If you have an index by collection, then you can
+
+	FORALL i IN INDICES OF emp_table
 
 

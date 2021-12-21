@@ -95,5 +95,8 @@ NOCOPY doesn't work when:
 - records using ROWTYPE or TYPE.
 
 ### PARALLEL_ENABLE
+After the RETURN in the function definition. Only in enterprise edition.
+
+### RESULT_CACHE
 
 

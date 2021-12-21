@@ -122,4 +122,15 @@ If you have an index by collection, then you can
 
 	FORALL i IN INDICES OF emp_table
 
+## Triggers
+Before / after insert.
 
+DELETE, INSERT, UPDATE, of course
+
+*But also*
+
+SERVERERROR, LOGON, LOGOFF, STARTUP, SHUTDOWN
+
+For DML statements:
+- Statement-level triggers
+- Row-level triggers

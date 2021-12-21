@@ -89,5 +89,10 @@ which is easy because you can't reassign anyway.
 Basically the issue is when the called subprogram throws - if we passed
 by reference we have no guarantee that the value wasn't already changed.
 
+NOCOPY doesn't work when:
+- element of an indexed array
+- is constrained
+- records using ROWTYPE or TYPE.
+
 
 

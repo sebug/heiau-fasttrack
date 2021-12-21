@@ -94,5 +94,6 @@ NOCOPY doesn't work when:
 - is constrained
 - records using ROWTYPE or TYPE.
 
+### PARALLEL_ENABLE
 
 

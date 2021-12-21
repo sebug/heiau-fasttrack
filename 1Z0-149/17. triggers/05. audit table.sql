@@ -72,6 +72,9 @@ WHERE employee_id = 100;
 
 SELECT * FROM emp_salary_audit;
 
+DELETE FROM emp_copy
+WHERE employee_id BETWEEN 140 AND 150;
+
 UPDATE emp_copy
 SET salary = 499;
 

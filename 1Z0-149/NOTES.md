@@ -134,3 +134,7 @@ SERVERERROR, LOGON, LOGOFF, STARTUP, SHUTDOWN
 For DML statements:
 - Statement-level triggers
 - Row-level triggers
+
+Order: before statement, before row, after row, after statement.
+
+

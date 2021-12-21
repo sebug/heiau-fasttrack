@@ -137,4 +137,8 @@ For DML statements:
 
 Order: before statement, before row, after row, after statement.
 
+### Follows
+Can be used to specify order of triggers if the order would otherwise
+be unspecified.
+
 

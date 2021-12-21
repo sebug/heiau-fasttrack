@@ -39,3 +39,5 @@ INSERT INTO emp (id, name)
 SELECT 1, 'seb' FROM dual
 UNION
 SELECT 2, 'sebu' FROM dual;
+
+SELECT * FROM which_fired_first;

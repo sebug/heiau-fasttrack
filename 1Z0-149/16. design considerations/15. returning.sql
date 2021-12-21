@@ -32,11 +32,9 @@ BEGIN
     BULK COLLECT INTO emp_table
     FROM ename_test;
     
-    FORALL i IN emp_table.first .. emp_table.last
-        UPDATE ename_test
-        SET salary = salary / 2
-        WHERE employee_id = emp_table(i).employee_id
-        RETURNING employee_id, salary BULK COLLECT INTO emp_new_sal;
+    UPDATE ename_test
+    SET salary = salary / 2
+    RETURNING employee_id, salary BULK COLLECT INTO emp_new_sal;
         
     FOR i IN emp_new_sal.first .. emp_new_sal.last
     LOOP

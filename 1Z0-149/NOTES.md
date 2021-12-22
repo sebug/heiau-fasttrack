@@ -168,4 +168,12 @@ comma-separated enable: statements.
 
 ERROR: - treat warning as error.
 
+### CCFLAGS
+Custom directives that you can add.
+
+Referencing a non-existent directive will give you a warning (but
+not in an anonymous block).
+
+$$ sign always starts searching in ccflags.
+
 

@@ -176,4 +176,7 @@ not in an anonymous block).
 
 $$ sign always starts searching in ccflags.
 
+### Obfuscation
+Euphemism: wrapping
+
 

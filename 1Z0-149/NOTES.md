@@ -164,4 +164,8 @@ Warning types:
 - Performance
 - Informational
 
+comma-separated enable: statements.
+
+ERROR: - treat warning as error.
+
 

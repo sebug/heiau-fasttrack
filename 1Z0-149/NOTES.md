@@ -146,4 +146,14 @@ Since the trigger can mutate records that are being inserted, we may get
 into strange situations where we're re-reading stuff that was modified by
 the trigger. This throws an exception.
 
+### System event triggers
+AFTER SERVERERROR for example, or AFTER STARTUP.
 
+### Call statement
+Can call a procedure from a trigger.
+
+### System privileges required for triggers
+CREATE, ALTER, DROP (ANY) trigger
+
+## PL/SQL Compiler
+PLSQL_OPTIMIZE_LEVEL .

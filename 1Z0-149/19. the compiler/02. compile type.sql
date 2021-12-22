@@ -9,6 +9,8 @@ CREATE OR REPLACE PROCEDURE p1
 IS
 BEGIN
     dbms_output.put_line('Yay from p1');
+    RETURN;
+    dbms_output.put_line('Unreachable, hey!'); -- Should give a warning
 END;
 
 SELECT *

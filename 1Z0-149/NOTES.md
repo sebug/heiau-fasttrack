@@ -156,4 +156,12 @@ Can call a procedure from a trigger.
 CREATE, ALTER, DROP (ANY) trigger
 
 ## PL/SQL Compiler
-PLSQL_OPTIMIZE_LEVEL .
+PLSQL_OPTIMIZE_LEVEL - 2 (default) allows moving stuff around, 3 allows inlining.
+
+Warning types:
+
+- Severe
+- Performance
+- Informational
+
+

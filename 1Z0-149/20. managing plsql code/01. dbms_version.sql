@@ -6,3 +6,7 @@ BEGIN
     END IF;
 END;
 
+SELECT text
+FROM ALL_SOURCE
+WHERE lower(name) = 'dbms_db_version'
+ORDER BY line;

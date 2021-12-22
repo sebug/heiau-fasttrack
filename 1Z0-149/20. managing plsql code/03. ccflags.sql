@@ -14,3 +14,25 @@ END;
 -- compilation to choose a different code path depending
 -- on these initial settings.
 
+CREATE OR REPLACE FUNCTION get_blab
+RETURN VARCHAR2
+IS
+    v_ret VARCHAR2(100);
+BEGIN
+    $IF $$nurbli = 5 $THEN
+        v_ret := 'blab';
+    $ELSE
+        v_ret := 'bleh';
+    $END
+    RETURN v_ret;
+END;
+
+SELECT get_blab FROM dual;
+
+ALTER SESSION set plsql_ccflags = 'language:1,nurbli:4';
+
+SELECT get_blab FROM dual; -- Still blab!
+
+ALTER FUNCTION get_blab COMPILE;
+
+SELECT get_blab FROM dual; -- Now bleh

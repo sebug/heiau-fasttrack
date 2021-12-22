@@ -36,3 +36,7 @@ SELECT get_blab FROM dual; -- Still blab!
 ALTER FUNCTION get_blab COMPILE;
 
 SELECT get_blab FROM dual; -- Now bleh
+
+SELECT *
+FROM user_plsql_object_settings
+WHERE lower(name) = 'get_blab';

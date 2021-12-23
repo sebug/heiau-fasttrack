@@ -184,4 +184,41 @@ WRAP iname=...
 ## Managing Dependencies
 Terminology: dependent object, referenced object.
 
+DEPTREE_FILL
+
+4 statuses:
+valid, invalid, compiled with errors, unauthorized
+
+If you modify a column, it invalidates.
+
+Adding a column - function invalidated.
+
+If you add new stuff at the end of the package, other elements referencing
+beginning of the package will not be invalidated.
+
+If you change a synonym, it may invalidate your stuff or not. If you point
+to something similar enough, then all is good.
+
+## Remote Dependencies
+
+	CREATE PUBLIC DATABASE LINK read_remote
+	CONNECT TO ict
+	IDENTIFIED BY ict
+	USING 'newd';
+
+Then
+
+	SELECT * FROM students@read_remote;
+
+
+'newd' is the TNS name.
+
+with this remote link, we will only discover upon calling that the object
+was invalid.
+
+You can either use TIMESTAMP or SIGNATURE to check for changes.
+
+if we notice such a change, then the first time the procedure calling a remote
+object will fail (for example, time stamp changed).
+
 

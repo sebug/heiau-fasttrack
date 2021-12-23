@@ -179,4 +179,9 @@ $$ sign always starts searching in ccflags.
 ### Obfuscation
 Euphemism: wrapping
 
+WRAP iname=...
+
+## Managing Dependencies
+Terminology: dependent object, referenced object.
+
 

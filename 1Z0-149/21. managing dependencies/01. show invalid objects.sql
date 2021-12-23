@@ -19,4 +19,4 @@ SELECT object_name, status
 FROM user_objects
 WHERE object_name = 'DEPENDENT_VIEW_A';
 
-SELECT * FROM dependent_view_a;
+SELECT * FROM dependent_view_a; -- interesting: if we re-create the table, the view initially stays invalid until first execution.
